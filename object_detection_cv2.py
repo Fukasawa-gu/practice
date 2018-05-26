@@ -2,7 +2,6 @@
 """
 Created on Sat May 26 23:10:34 2018
 
-@author: 深澤裕士
 """
 
 import cv2, matplotlib
