@@ -1,8 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun May 27 03:07:56 2018
-"""
-
 import cv2
 import numpy as np
 import os
@@ -12,8 +7,9 @@ import glob
 import codecs
 % matplotlib inline
 
-# 分類されたデータセットになる画像フォルダへのディレクトリを指定
-dir = 'C:/Users/Desktop/data_picture/coin'
+name = input('何の物体のアノテーションを行いますか？ : ')
+# 分類された画像フォルダへのディレクトリを指定(例: C:/Users/fukasawagu/Desktop/data_picture/coin) 
+dir = 'XXXXX'
 files = os.listdir(dir)# ファイルのリストを取得
 count = 0
 for file in files:# ファイルの数だけループ
@@ -37,18 +33,21 @@ def imread(filename, flags=cv2.IMREAD_COLOR, dtype=np.uint8):
     except Exception as e:
         print(e)
         return None
-# 元になるxmlのpathを指定する
-sample = minidom.parse("C:/Users/Desktop/data_picture/coin/coin_annotation/coin (1).xml")
+
+# 元になるxmlのpathを指定する 上げてあるcoin (1).xmlへのpathを指定しておく
+sample = minidom.parse("XXXXX/coin (1).xml")
 # 出来たxmlを保存するフォルダを作るのでpathを指定
-edited_dir = 'C:/Users/Desktop/data_picture/coin/test/'
+edited_dir = 'C:/Users/fukasawa_gu/Desktop/data_picture/coin/coin_xml/'
 os.makedirs(edited_dir, exist_ok=True)
 
+files = os.listdir(dir)
+print("全ファイル数 : ", count)
 for i in range(1,count+1):
     xdoc = sample # 一応分けておく
     folder = dir.split('/')[-1]# annotationのオブジェクト名にしたい物が入っているフォルダ名
     img_path = dir+'/'+files[i-1]# imageのpathを指定
-    print(img_path)
-    img = imread(imgs[i-1])# imageの読み込み
+    print("read : " + img_path)
+    img = imread(dir + '/' + str(files[i-1]))
     img_size = img.shape# imageの大きさを得る
     width = img_size[1]
     height = img_size[0]
@@ -76,9 +75,12 @@ for i in range(1,count+1):
     element = xdoc.getElementsByTagName("ymax")[0]
     element.childNodes[0].data = height
     element = xdoc.getElementsByTagName("name")[0]
-    element.childNodes[0].data = folder
+    element.childNodes[0].data = name
     
     # xmlを保存する
-    f = codecs.open('edited_dir' + 'annotation_{0}.xml'.format(files[i-1][:-4]), 'w', 'utf-8')
+    print('saved at : ' + edited_dir + 'annotation_{0}.xml'.format(files[i-1][:-4]))
+    f = codecs.open(edited_dir + 'annotation_{0}.xml'.format(files[i-1][:-4]), 'w', 'utf-8')
     xdoc.writexml(writer=f, encoding='UTF-8', newl='\n', addindent='\t')
     f.close()
+    
+print('all image annotated.')
