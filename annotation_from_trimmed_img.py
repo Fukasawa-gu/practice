@@ -45,7 +45,7 @@ os.makedirs(edited_dir, exist_ok=True)
 
 for i in range(1,count+1):
     xdoc = sample # 一応分けておく
-    folder = 'coin'# annotationのオブジェクト名にしたい物
+    folder = dir.split('/')[-1]# annotationのオブジェクト名にしたい物が入っているフォルダ名
     img_path = dir+'/'+files[i-1]# imageのpathを指定
     print(img_path)
     img = imread(imgs[i-1])# imageの読み込み
