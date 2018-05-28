@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Sun May 27 03:07:56 2018
-
-@author: 深澤裕士
 """
 
 import cv2
@@ -14,7 +12,8 @@ import glob
 import codecs
 % matplotlib inline
 
-dir = 'C:/Users/深澤裕士/Desktop/data_picture/coin'
+# 分類されたデータセットになる画像フォルダへのディレクトリを指定
+dir = 'C:/Users/Desktop/data_picture/coin'
 files = os.listdir(dir)# ファイルのリストを取得
 count = 0
 for file in files:# ファイルの数だけループ
@@ -39,9 +38,11 @@ def imread(filename, flags=cv2.IMREAD_COLOR, dtype=np.uint8):
         print(e)
         return None
 # 元になるxmlのpathを指定する
-sample = minidom.parse("C://Users/深澤裕士/Desktop/data_picture/coin/coin_annotation/coin (1).xml")
-# 出来たxmlを保存する先を指定
-os.makedirs('C:/Users/深澤裕士/Desktop/data_picture/coin/test/', exist_ok=True)
+sample = minidom.parse("C:/Users/Desktop/data_picture/coin/coin_annotation/coin (1).xml")
+# 出来たxmlを保存するフォルダを作るのでpathを指定
+edited_dir = 'C:/Users/Desktop/data_picture/coin/test/'
+os.makedirs(edited_dir, exist_ok=True)
+
 for i in range(1,count+1):
     xdoc = sample # 一応分けておく
     folder = 'coin'# annotationのオブジェクト名にしたい物
@@ -78,6 +79,6 @@ for i in range(1,count+1):
     element.childNodes[0].data = folder
     
     # xmlを保存する
-    f = codecs.open('C:/Users/深澤裕士/Desktop/data_picture/coin/test/annotation_{0}.xml'.format(files[i-1][:-4]), 'w', 'utf-8')
+    f = codecs.open('edited_dir' + 'annotation_{0}.xml'.format(files[i-1][:-4]), 'w', 'utf-8')
     xdoc.writexml(writer=f, encoding='UTF-8', newl='\n', addindent='\t')
     f.close()
