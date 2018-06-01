@@ -2,6 +2,7 @@
 """
 Created on Sat May 26 23:10:34 2018
 
+@author: 深澤裕士
 """
 
 import cv2, matplotlib
@@ -36,11 +37,12 @@ def object_detection(path):
     
     detected_list = []
     img_size = img.shape
+    counter = 0
     for i in contours:
         # 検出した物体が小さければ次に検出した物体へ移る
         if cv2.contourArea(i) < int(img_size[0]*0.1 + 0.1*img_size[1]):
             continue
-        
+        counter += 1
         # 輪郭がギリギリなので周囲に余白がほしい
         x, y, w, h = cv2.boundingRect(i)
         if(x<20 and y>=20):
@@ -52,6 +54,7 @@ def object_detection(path):
             
         # 検出できたもの
         img_detected = img[y:(y + h), x:(x + w)]
+        cv2.imwrite("detected({}).jpg".format(counter), img_detected)
         img_detected = cv2.cvtColor(img_detected, cv2.COLOR_RGB2BGR)
         # 一行目がNoneだったら飛ばす
         if img_detected is None:
@@ -62,7 +65,7 @@ def object_detection(path):
 
 
 
-file_path = 'coin.jpg'# pathを入力
+file_path = 'coins (454).jpg'# pathを入力
 sample = object_detection(file_path)
 print(len(sample))
 #for i in range(8):
