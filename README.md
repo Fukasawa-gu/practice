@@ -6,7 +6,11 @@ annotation_from_trimmed_img.pyを使う際に元データとして必要
 
 # object_detection_cv2.py
 閾値処理を利用した物体検出のプログラム。
+検出した物をdetected(n).jpgで保存する。
 背景が出来るだけ統一されている必要がある。
+
+# coins (454).jpg
+object_detection_cv2.pyでこの画像に実行すると上手くできてるはず。
 
 # rakuma_get_data.py
 ラクマに出品している商品のデータ（タイトル、詳細、価格）をExcelにまとめ、画像を保存する。
