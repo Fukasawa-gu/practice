@@ -108,10 +108,13 @@ try:
             sheet1.write(i+k-1, 2, price)
             sheet1.write(i+k-1, 3, description)
             sheet1.write(i+k-1, 4, status)
-            sheet1.write(i+k-1, 5, gazos[1])
-            sheet1.write(i+k-1, 6, gazos[2])
-            sheet1.write(i+k-1, 7, gazos[3])
-            sheet1.write(i+k-1, 8, gazos[4])
+            try:
+                sheet1.write(i+k-1, 5, gazos[1])
+                sheet1.write(i+k-1, 6, gazos[2])
+                sheet1.write(i+k-1, 7, gazos[3])
+                sheet1.write(i+k-1, 8, gazos[4])
+            except:
+                pass
             book.save('C:/Users/fukasawagu/Desktop/rakuma_merukari/rakuma_merukari.csv')# path指定してExcelファイルを保存
             chro.back()
             time.sleep(1)
