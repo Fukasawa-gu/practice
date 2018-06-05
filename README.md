@@ -13,7 +13,10 @@ annotation_from_trimmed_img.pyを使う際に元データとして必要
 object_detection_cv2.pyでこの画像に実行すると上手くできてるはず。
 
 # rakuma_get_data.py
-ラクマに出品している商品のデータ（タイトル、詳細、価格）をExcelにまとめ、画像を保存する。
+旧ラクマに出品している商品のデータ（タイトル、詳細、価格）をExcelにまとめ、画像を保存する。
+
+# merukari_get_data.py
+メルカリに出品している商品のデータ（タイトル、詳細、価格、商品の状態、発送元）をExcelにまとめ、画像を保存する。
 
 # yahuoku_watchlist.py
 ヤフオクの複数アカウントに対して出品している商品全てをウォッチリスト登録を行う。
