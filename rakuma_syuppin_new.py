@@ -18,9 +18,7 @@ import os
 from time import sleep
 import pandas as pd
 
-book = pd.read_excel("C:/Users/antylink/Desktop/merukari_data/merukari_data.xlsx", index_col=0)
-
-# df.to_excel("C:/Users/antylink/Desktop/merukari_data/merukari_data.xlsx")
+book = pd.read_excel("C:/Users/Fukasawa-gu/Desktop/merukari_data/merukari_data.xlsx", index_col=0)
 
 def searchLink(linkString):
     elem_last_btn=chro.find_element_by_link_text(linkString)
@@ -33,8 +31,8 @@ def xpath_click(xpath):
     time.sleep(1)
 
 chro = webdriver.Chrome()
-name = "hiroshi_watanabe_hiroshi@yahoo.co.jp"
-passwd = "1114253internet314"
+name = "XXXXX@yahoo.co.jp"
+passwd = "XXXXX"
 chro.get('https://fril.jp/')
 time.sleep(1)
 
@@ -73,7 +71,7 @@ try:
             print(photo3)
             print(photo4)
 
-            dirname = 'C:/Users/antylink/Desktop/merukari_data/'
+            dirname = 'C:/Users/Fukasawa-gu/Desktop/merukari_data/'
             for j in range(4):
                 try:
                     dir_photo = dirname + photos[j]
