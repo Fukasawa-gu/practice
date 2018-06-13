@@ -15,7 +15,7 @@ object_detection_cv2.pyでこの画像に実行すると上手くできてるは
 # rakuma_get_data.py
 旧ラクマに出品している商品のデータ（タイトル、詳細、価格）をExcelにまとめ、画像を保存する。
 
-# rakuma_get_data_new.py
+# rakuma_syuppin_new.py
 merukari_get_data.py で保存した（タイトル、詳細、価格、商品の状態、保存した画像名）のExcelと画像を読み取り、ラクマに自動で出品する。
 merukari_get_data.pyを利用しなくてもExcelの形式と画像名があっていれば自動で出品可能。
 
