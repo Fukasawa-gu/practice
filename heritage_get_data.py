@@ -11,7 +11,7 @@ l = []
 driver.get('https://coins.ha.com/c/search-results.zx?N=790+231+51&ic10=ArchiveTab-071515')
 time.sleep(1)
 
-book = openpyxl.load_workbook('C:\\Users\\深澤裕士\\Desktop\\heritage.xlsx')
+book = openpyxl.load_workbook('C:\\Users\\aaaaa\\Desktop\\heritage.xlsx')
 sheet = book['Sheet1']
 sheet.cell(row=1,column=1).value = 'Number'
 sheet.cell(row=1,column=2).value = 'Grade'
@@ -74,7 +74,7 @@ def heritage(cat_n, lot_n):
                     sheet.cell(row=lot_n+1,column=2).value = grade
                     sheet.cell(row=lot_n+1,column=3).value = title
                     sheet.cell(row=lot_n+1,column=4).value = text
-                    book.save('C:\\Users\\深澤裕士\\Desktop\\heritage.xlsx')
+                    book.save('C:\\Users\\aaaaa\\Desktop\\heritage.xlsx')
                     img_n = 0
                     while(True):
                         try:
@@ -99,7 +99,7 @@ def heritage(cat_n, lot_n):
                     limit += 1
                     lot_n += 1
                 except:
-                    book.save('C:\\Users\\深澤裕士\\Desktop\\heritage.xlsx')
+                    book.save('C:\\Users\\aaaaa\\Desktop\\heritage.xlsx')
                     print('end')
                     break
             try:
